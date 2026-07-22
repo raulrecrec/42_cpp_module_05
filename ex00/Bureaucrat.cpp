@@ -6,11 +6,11 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/21 14:39:09 by rexposit          #+#    #+#             */
-/*   Updated: 2026/07/22 17:52:46 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/07/22 18:04:02 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Bureaucrat.hpp>
+#include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat()
 	: _name("Default"), _grade(150)
@@ -53,7 +53,23 @@ int	Bureaucrat::getGrade() const
 	return (_grade);
 }
 
-const char *Bureaucrat::GradeTooHighException::what() const throw()
+void	Bureaucrat::incrementGrade()
+{
+	if (_grade == 1)
+		throw GradeTooHighException();
+
+	_grade--;
+}
+
+void	Bureaucrat::decrementGrade()
+{
+	if (_grade == 150)
+		throw GradeTooLowException();
+	
+	_grade++;
+}
+
+const char	*Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return ("Grade too high.");
 }
