@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 19:40:41 by rexposit          #+#    #+#             */
-/*   Updated: 2026/07/22 20:25:48 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/07/23 11:00:16 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,9 @@ class	Form
 		~Form();
 
 		const std::string	&getName() const;
-		bool				getSigned() const;
+		bool				isSigned() const;
 		int					getSignGrade() const;
 		int					getExecuteGrade() const;
-
-		void	beSigned(const Bureaucrat &bureaucrat);
 
 		class GradeTooHighException : public std::exception
 		{
@@ -52,6 +50,8 @@ class	Form
 			public:
 				virtual const char *what() const throw();
 		};
+
+		void	beSigned(const Bureaucrat &bureaucrat);
 };
 
 std::ostream	&operator<<(std::ostream &out, const Form &form);
