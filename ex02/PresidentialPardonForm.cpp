@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 20:49:08 by rexposit          #+#    #+#             */
-/*   Updated: 2026/07/28 20:58:04 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/07/28 21:05:18 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string &target)
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other)
-	: _target(other._target)
+	: AForm(other), _target(other._target)
 {
 }
 
